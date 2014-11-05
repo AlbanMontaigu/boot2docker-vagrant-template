@@ -1,0 +1,27 @@
+
+#
+# ADD personal FIG and DOCKER aliases
+#
+
+# Misc
+alias dfig-non-interactive='docker run --rm -v $(pwd -P)/etc/fig:/app /var/run/docker.sock:/var/run/docker.sock -e APP_HOME=$(pwd -P) dduportal/fig'
+alias dfig='docker run --rm -v $(pwd -P)/etc/fig:/app -v /var/run/docker.sock:/var/run/docker.sock -e APP_HOME=$(pwd -P) -ti dduportal/fig'
+alias dfig-pull='dfig pull --allow-insecure-ssl'
+alias dfig-up='dfig up -d'
+alias dfig-init='dfig stop ; dfig rm ; dfig-pull; dfig-up'
+alias ls='ls --color=tty'
+alias ll='ls -al'
+alias tailf='tail -f'
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
+
+# Kill all running containers.
+alias docker-killall='docker kill $(docker ps -q)'
+
+# Delete all stopped containers.
+alias docker-cleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+
+# Delete all untagged images.
+alias docker-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+# Delete all stopped containers and untagged images.
+alias docker-clean='docker-cleanc || true && docker-cleani'
