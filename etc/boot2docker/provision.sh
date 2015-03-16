@@ -8,7 +8,7 @@ echo "== custom-* updated !"
 if [ -f /var/lib/boot2docker/bootlocal.sh ]; then
    echo "== bootlocal.sh exists !"
 else
-   echo "#!/bin/sh\n" > /var/lib/boot2docker/bootlocal.sh
+   echo -e "#!/bin/sh\n" > /var/lib/boot2docker/bootlocal.sh
    echo "== bootlocal.sh created !"
 fi
 
@@ -32,6 +32,6 @@ fi
 if grep -q devicemapper /var/lib/boot2docker/profile; then
     echo "== nothing todo in boot2docker/profile for devicemapper !"
 else
-    echo 'DOCKER_STORAGE=devicemapper' >> /var/lib/boot2docker/profile
+    echo -e '\nDOCKER_STORAGE=devicemapper\n' >> /var/lib/boot2docker/profile
     echo "== boot2docker/profile updated with devicemapper !"
 fi
