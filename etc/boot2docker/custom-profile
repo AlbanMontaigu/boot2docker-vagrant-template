@@ -1,6 +1,6 @@
 
 #
-# ADD personal FIG and DOCKER aliases
+# ADD personal DOCKER-COMPOSE and DOCKER aliases
 #
 
 # Misc
@@ -13,6 +13,13 @@ alias ls='ls --color=tty'
 alias ll='ls -al'
 alias tailf='tail -f'
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
+
+
+# alias to the devbox
+alias devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/ncarlier-devbox/.zshrc:/home/dev/.zshrc --name="devbox" ncarlier/devbox'
+alias devbox-start='docker start -ia devbox'
+alias devbox-rm='docker rm devbox'
+
 
 # Kill all running containers.
 alias docker-killall='docker kill $(docker ps -q)'
