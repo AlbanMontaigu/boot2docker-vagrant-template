@@ -9,6 +9,7 @@ if [ -f /var/lib/boot2docker/bootlocal.sh ]; then
    echo "== bootlocal.sh exists !"
 else
    echo -e "#!/bin/sh\n" > /var/lib/boot2docker/bootlocal.sh
+   chmod 777 /var/lib/boot2docker/bootlocal.sh
    echo "== bootlocal.sh created !"
 fi
 
@@ -17,6 +18,7 @@ if grep -q custom-bootlocal /var/lib/boot2docker/bootlocal.sh; then
     echo "== nothing todo in bootlocal.sh !"
 else
     echo -e "\n# Custom instructions\n/var/lib/boot2docker/custom-bootlocal.sh\n" >> /var/lib/boot2docker/bootlocal.sh
+	chmod 777 /var/lib/boot2docker/custom-bootlocal.sh
     echo "== bootlocal.sh updated !"
 fi
 
