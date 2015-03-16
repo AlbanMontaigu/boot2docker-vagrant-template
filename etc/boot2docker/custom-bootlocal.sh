@@ -18,7 +18,10 @@ done
 #
 # ADD Personal alias to docker user's profile
 #
+echo "== Adding custom-profile to user configuration !"
 cat /var/lib/boot2docker/custom-profile >> /home/docker/.ashrc
+chmod 777 /home/docker/.ashrc
+echo "== custom-profile done !"
 
 #
 # In docker 1.5.0, .sock required in NO_PROXY to avoid 404 on commands.
