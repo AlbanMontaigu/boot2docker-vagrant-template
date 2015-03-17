@@ -1,7 +1,13 @@
 
+
+# =====================================================
+# You can customize docker user profile here
+# =====================================================
+
 #
+# Uncomment it to enable !
 # Warning, inception starts here : the docker devbox is started directly. 
 # And so when users logs, it goes in this box directly and user comes in 
 # directly
 #
-devbox
+#devbox
