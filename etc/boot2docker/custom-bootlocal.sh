@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#
+# ----------------------------------------------------
 # Waiting for /vagrant because it may be not mounted
-#
+# ----------------------------------------------------
 for i in `seq 1 5`; do 
     echo "== Checking existence of /vagrant !"
     if [ -d /vagrant ]; then
@@ -15,18 +15,28 @@ for i in `seq 1 5`; do
 done
 
 
-#
-# ADD Personal alias to docker user's profile
-#
-echo "== Adding custom-profile to user configuration !"
+# ----------------------------------------------------
+# ADD custom commands to the system
+# ----------------------------------------------------
+echo "== Adding custom-commands.sh to /etc/profile.d/ !"
+cp /var/lib/boot2docker/custom-commands.sh /etc/profile.d/custom-commands.sh
+chmod 777 /etc/profile.d/custom-commands.sh
+echo "== custom-commands.sh added !"
+
+
+# ----------------------------------------------------
+# ADD personal stuff to user's profile
+# ----------------------------------------------------
+echo "== Adding custom-profile to user ~/.ashrc !"
 cat /var/lib/boot2docker/custom-profile >> /home/docker/.ashrc
 chmod 777 /home/docker/.ashrc
 echo "== custom-profile done !"
 
-#
+
+# -----------------------------------------------------------------------
 # In docker 1.5.0, .sock required in NO_PROXY to avoid 404 on commands.
 # Will be fixed in docker 1.5.1.
-#
+# -----------------------------------------------------------------------
 echo "== Checking existence .sock in NO_PROXY !"
 if (env | grep -q .sock); then
 	echo "== .sock already in NO_PROXY !"
