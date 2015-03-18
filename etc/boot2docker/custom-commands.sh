@@ -42,20 +42,20 @@ alias docker-clean='docker-cleanc || true && docker-cleani'
 
 
 # --------------------------------------
-# Docker devbox aliases and commands
+# Docker ddevbox aliases and commands
 # --------------------------------------
-alias devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/ncarlier-devbox/.zshrc:/home/dev/.zshrc --name="devbox" --net=host ncarlier/devbox'
-alias devbox-start='docker start -ia devbox'
-alias devbox-rm='docker rm devbox'
+alias ddevbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc --name="ddevbox" --net=host amontaigu/docker-devbox'
+alias ddevbox-start='docker start -ia ddevbox'
+alias ddevbox-rm='docker rm ddevbox'
 
-# All in one command to start the devbox in all cases
-devbox(){
-  RUNNING=$(docker inspect --format="{{.State.Running}}" devbox 2> /dev/null)
+# All in one command to start the ddevbox in all cases
+ddevbox(){
+  RUNNING=$(docker inspect --format="{{.State.Running}}" ddevbox 2> /dev/null)
   if [[ "$RUNNING" == "false" ]]
   then
-    devbox-start
+    ddevbox-start
   else
-    devbox-run
+    ddevbox-run
   fi
   return 0
 }
