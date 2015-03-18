@@ -44,7 +44,7 @@ alias docker-clean='docker-cleanc || true && docker-cleani'
 # --------------------------------------
 # Docker devbox aliases and commands
 # --------------------------------------
-alias devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/ncarlier-devbox/.zshrc:/home/dev/.zshrc --name="devbox" ncarlier/devbox'
+alias devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/ncarlier-devbox/.zshrc:/home/dev/.zshrc --name="devbox" --net=host ncarlier/devbox'
 alias devbox-start='docker start -ia devbox'
 alias devbox-rm='docker rm devbox'
 
