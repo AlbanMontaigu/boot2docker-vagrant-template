@@ -44,7 +44,7 @@ alias docker-clean='docker-cleanc || true && docker-cleani'
 # --------------------------------------
 # Docker ddevbox aliases and commands
 # --------------------------------------
-alias ddevbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc --name="ddevbox" --net=host amontaigu/docker-devbox'
+alias ddevbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock  --name="ddevbox" --net=host amontaigu/docker-devbox'
 alias ddevbox-start='docker start -ia ddevbox'
 alias ddevbox-rm='docker rm ddevbox'
 
