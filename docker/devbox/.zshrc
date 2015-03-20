@@ -50,7 +50,7 @@ alias ll='ls -al'
 # ----------------------------------------
 # Docker compose aliases
 # ----------------------------------------
-alias dc='docker-compose --file $(pwd -P)/etc/docker-compose/docker-compose.yml -p dc'
+alias dc='docker-compose'
 alias dc-pull='dc pull --allow-insecure-ssl'
 alias dc-up='dc up -d --allow-insecure-ssl'
 alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
