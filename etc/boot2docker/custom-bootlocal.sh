@@ -56,6 +56,6 @@ fi
 # If you need a generic proxy for your docker containers uncoment it
 # and do not forget to edit custom-commands.sh for the parent proxy conf
 # -----------------------------------------------------------------------
-#dk-redsocks
+#dk_redsocks
 
 

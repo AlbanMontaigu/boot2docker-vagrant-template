@@ -58,7 +58,7 @@ alias dk-devbox-rm='docker rm dk-devbox'
 # All in one command to start the dk-devbox in all cases
 dk_devbox(){
 
-	# If redsocks is required (you have a proxy) and not auto started in custom-bootlocal.sh
+	# If redsocks is required (you have a proxy) ensure its started (even if in custom-bootlocal)
 	#dk_redsocks
 	
     # Go to the devbox
