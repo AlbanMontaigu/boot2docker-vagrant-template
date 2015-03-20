@@ -22,7 +22,7 @@ alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
 
 
 # --------------------------------------
-# Docker aliases
+# Docker aliases and functions
 # --------------------------------------
 alias dk-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
 
@@ -38,24 +38,44 @@ alias dk-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(doc
 # Delete all stopped containers and untagged images.
 alias dk-clean='dk-cleanc || true && dk-cleani'
 
+# Get all proxy env var in a docker cmd line friendly format
+dk_proxy_env(){
+    prx_env="-e "$(env | grep HTTP_PROXY)
+    prx_env=$prx_env" -e "$(env | grep http_proxy)
+    prx_env=$prx_env" -e "$(env | grep NO_PROXY)
+    prx_env=$prx_env" -e "$(env | grep no_proxy)
+    echo "${prx_env}"
+}
+
 
 # --------------------------------------
 # Docker dk-devbox aliases and commands
 # --------------------------------------
-alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock --name="dk-devbox" --net=host amontaigu/docker-devbox'
+alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock --name="dk-devbox" amontaigu/docker-devbox'
 alias dk-devbox-start='docker start -ia dk-devbox'
 alias dk-devbox-rm='docker rm dk-devbox'
 
 # All in one command to start the dk-devbox in all cases
 dk_devbox(){
-  RUNNING=$(docker inspect --format="{{.State.Running}}" dk-devbox 2> /dev/null)
-  if [[ "$RUNNING" == "false" ]]
-  then
-    dk-devbox-start
-  else
-    dk-devbox-run
-  fi
-  return 0
+
+	# If redsocks is required (you have a proxy) and not auto started in custom-bootlocal.sh
+	#dk_redsocks
+	
+    # Go to the devbox
+    RUNNING=$(docker inspect --format="{{.State.Running}}" dk-devbox 2> /dev/null)
+    if [[ "$RUNNING" == "false" ]]
+    then
+	    echo "Starting dk-devbox docker container..."
+        dk-devbox-start
+    else
+        if [[ "$RUNNING" != "true" ]]
+        then
+		    echo "Running dk-devbox docker container..."
+            dk-devbox-run
+        else
+		    echo "dk-devbox docker container is already started !"
+	    fi
+    fi
 }
 
 # ------------------------------------------------------------
@@ -64,19 +84,27 @@ dk_devbox(){
 #
 # Change the configuration 1.2.3.4 3128 to your correct proxy
 # ------------------------------------------------------------
-alias dk-redsocks-start='docker run --privileged=true --net=host -v /vagrant/etc/docker-redsocks/whitelist.txt:/etc/redsocks-whitelist.txt --name="dk-redsocks" -d ncarlier/redsocks 1.2.3.4 3128'
+alias dk-redsocks-run='docker run --privileged=true --net=host -v /vagrant/etc/docker-redsocks/whitelist.txt:/etc/redsocks-whitelist.txt --name="dk-redsocks" -d ncarlier/redsocks 1.2.3.4 3128'
 alias dk-redsocks-start='docker start -ia dk-redsocks'
 alias dk-redsocks-reverse-iptables='iptables-save | grep -v REDSOCKS | iptables-restore'
 alias dk-redsocks-stop='docker stop dk-redsocks && dk-redsocks-reverse-iptables'
 
 # All in one command to start the dk-redsocks in all cases
 dk_redsocks(){
-  RUNNING=$(docker inspect --format="{{.State.Running}}" dk-redsocks 2> /dev/null)
-  if [[ "$RUNNING" == "false" ]]
-  then
-    dk-redsocks-start
-  else
-    dk-redsocks-run
-  fi
-  return 0
+    RUNNING=$(docker inspect --format="{{.State.Running}}" dk-redsocks 2> /dev/null)
+    if [[ "$RUNNING" == "false" ]]
+    then
+		echo "Starting dk-redsocks docker container..."
+        dk-redsocks-start
+    else
+        if [[ "$RUNNING" != "true" ]]
+        then
+		    echo "Running dk-redsocks docker container..."
+	        dk-redsocks-run
+        else
+		    echo "dk-redsocks docker container is already started !"
+        fi
+    fi
 }
+
+
