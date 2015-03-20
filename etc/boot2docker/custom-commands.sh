@@ -47,7 +47,7 @@ alias dk-devbox-start='docker start -ia dk-devbox'
 alias dk-devbox-rm='docker rm dk-devbox'
 
 # All in one command to start the dk-devbox in all cases
-dk-devbox(){
+dk_devbox(){
   RUNNING=$(docker inspect --format="{{.State.Running}}" dk-devbox 2> /dev/null)
   if [[ "$RUNNING" == "false" ]]
   then
@@ -70,7 +70,7 @@ alias dk-redsocks-reverse-iptables='iptables-save | grep -v REDSOCKS | iptables-
 alias dk-redsocks-stop='docker stop dk-redsocks && dk-redsocks-reverse-iptables'
 
 # All in one command to start the dk-redsocks in all cases
-dk-redsocks(){
+dk_redsocks(){
   RUNNING=$(docker inspect --format="{{.State.Running}}" dk-redsocks 2> /dev/null)
   if [[ "$RUNNING" == "false" ]]
   then
