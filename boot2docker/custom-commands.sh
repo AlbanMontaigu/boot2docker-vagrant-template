@@ -51,7 +51,7 @@ dk_proxy_env(){
 # --------------------------------------
 # Docker dk-devbox aliases and commands
 # --------------------------------------
-alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/etc/docker-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock --name="dk-devbox" amontaigu/docker-devbox'
+alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/docker/dk-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock --name="dk-devbox" amontaigu/docker-devbox'
 alias dk-devbox-start='docker start -ia dk-devbox'
 alias dk-devbox-rm='docker rm dk-devbox'
 
@@ -84,7 +84,7 @@ dk_devbox(){
 #
 # Change the configuration 1.2.3.4 3128 to your correct proxy
 # ------------------------------------------------------------
-alias dk-redsocks-run='docker run --privileged=true --net=host -v /vagrant/etc/docker-redsocks/whitelist.txt:/etc/redsocks-whitelist.txt --name="dk-redsocks" -d ncarlier/redsocks 1.2.3.4 3128'
+alias dk-redsocks-run='docker run --privileged=true --net=host -v /vagrant/docker/dk-redsocks/whitelist.txt:/etc/redsocks-whitelist.txt --name="dk-redsocks" -d ncarlier/redsocks 1.2.3.4 3128'
 alias dk-redsocks-start='docker start -ia dk-redsocks'
 alias dk-redsocks-reverse-iptables='iptables-save | grep -v REDSOCKS | iptables-restore'
 alias dk-redsocks-stop='docker stop dk-redsocks && dk-redsocks-reverse-iptables'

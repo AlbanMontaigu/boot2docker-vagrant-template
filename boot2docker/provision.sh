@@ -3,7 +3,7 @@
 # -------------------------------------------------
 # Update configuration files
 # -------------------------------------------------
-cp -f /vagrant/etc/boot2docker/custom-* /var/lib/boot2docker
+cp -f /vagrant/boot2docker/custom-* /var/lib/boot2docker
 echo "== custom-* updated !"
 
 
