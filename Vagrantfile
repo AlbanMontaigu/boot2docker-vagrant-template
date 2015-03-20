@@ -7,6 +7,6 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
   
-  config.vm.provision "shell", path: "etc/boot2docker/provision.sh"
+  config.vm.provision "shell", path: "boot2docker/config/provision.sh"
   
 end
