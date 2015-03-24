@@ -24,6 +24,11 @@ alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
 # --------------------------------------
 # Docker aliases and functions
 # --------------------------------------
+
+# Docker cmd shortener
+alias dk="docker"
+
+# Show ip of a docker container
 alias dk-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1"
 
 # Kill all running containers.
