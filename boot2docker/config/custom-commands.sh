@@ -83,6 +83,10 @@ dk_devbox(){
     fi
 }
 
+# More convenient
+alias dk-devbox="dk_devbox"
+
+
 # ------------------------------------------------------------
 # Redsocks container to avoid proxy definition 
 # @see https://registry.hub.docker.com/u/ncarlier/redsocks/
@@ -112,4 +116,6 @@ dk_redsocks(){
     fi
 }
 
+# More convenient
+alias dk-redsocks="dk_redsocks"
 
