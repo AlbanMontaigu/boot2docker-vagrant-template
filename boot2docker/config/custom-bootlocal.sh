@@ -8,8 +8,8 @@
 # ----------------------------------------------------
 # Waiting for /vagrant because it may be not mounted
 # ----------------------------------------------------
+echo "== Checking existence of /vagrant !"
 for i in `seq 1 5`; do 
-    echo "== Checking existence of /vagrant !"
     if [ -d /vagrant ]; then
         echo "== /vagrant found !"
         break
