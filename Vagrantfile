@@ -4,10 +4,12 @@
 # ==========================================
 Vagrant.configure("2") do |config|
 
+
   # -----------------------------------
   # OS choosen on the machine
   # -----------------------------------
-  config.vm.box = "dduportal/boot2docker"
+  config.vm.box = "AlbanMontaigu/boot2docker"
+
 
   # -----------------------------------
   # Server Hardware 
@@ -17,17 +19,21 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
   
+
   # -----------------------------------
   # Bridge required on second adapter in some network issue cases
   # See provision.sh to have custom network configuration
   # -----------------------------------
   #config.vm.network "public_network", auto_config: false
 
+
   # -----------------------------------
-  # All ump portal service exposed
+  # All internal services exposed
   # -----------------------------------
   config.vm.network "forwarded_port", guest: 22, host: 22, auto_correct: true
-  config.vm.network "forwarded_port", guest: 3316, host: 3316, auto_correct: true
+  # Sample for MySQL
+  #config.vm.network "forwarded_port", guest: 3306, host: 3306, auto_correct: true
+  
   
   # -----------------------------------
   # Customization of the OS
