@@ -15,7 +15,7 @@ alias ll='ls -al'
 # --------------------------------------
 # Docker compose aliases
 # --------------------------------------
-alias dc='docker run --rm -v $(pwd -P):/$(pwd -P) -v /var/run/docker.sock:/var/run/docker.sock -ti -w="$(pwd -P)" dduportal/docker-compose'
+alias dc='docker run --rm -v $(pwd -P):/$(pwd -P) -v /var/run/docker.sock:/var/run/docker.sock -ti -w="$(pwd -P)" amontaigu/docker-compose'
 alias dc-pull='dc pull --allow-insecure-ssl'
 alias dc-up='dc up -d --allow-insecure-ssl'
 alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
