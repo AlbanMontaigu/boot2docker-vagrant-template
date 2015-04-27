@@ -39,20 +39,6 @@ echo "== custom-profile done !"
 
 
 # -----------------------------------------------------------------------
-# In docker 1.5.0, .sock required in NO_PROXY to avoid 404 on commands.
-# Will be fixed in docker 1.5.1.
-# -----------------------------------------------------------------------
-echo "== Checking existence .sock in NO_PROXY !"
-if (env | grep -q .sock); then
-	echo "== .sock already in NO_PROXY !"
-else
-	NO_PROXY="${NO_PROXY},.sock"
-	no_proxy="${no_proxy},.sock"
-	echo "== .sock added in NO_PROXY !"
-fi
-
-
-# -----------------------------------------------------------------------
 # If you need a generic proxy for your docker containers uncoment it
 # and do not forget to edit custom-commands.sh for the parent proxy conf
 # -----------------------------------------------------------------------
