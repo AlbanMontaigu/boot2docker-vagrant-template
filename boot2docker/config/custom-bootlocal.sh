@@ -61,19 +61,22 @@ echo "== custom-profile done !"
 
 # -----------------------------------------------------------------------
 # Reroute all network to eth2 which is bridged (see vagrant file).
-# This should fix the mail send issue...
-#
-# Note : network configuration seem to persist so instead of detect it,
-#        clean all and redo it
+# This should fix the mail send issue for example...
 # -----------------------------------------------------------------------
 #echo "== Customizing network configuration to the bridge with gateway ${PARENT_HOST_NETWORK_GATEWAY}"
 
-# Worldline gateway may change depending on the site
-# so it should be auto detected from parent host
+#echo "-- Prevent-del default gw from eth2"
 #sudo route del default eth2
-#sudo route add default gw ${PARENT_HOST_NETWORK_GATEWAY} eth2
+#echo "-- Prevent-del gw host from eth2"
+#sudo route del $PARENT_HOST_NETWORK_GATEWAY eth2
+
+#echo "-- (Re) add default gw host in eth2"
+#sudo route add $PARENT_HOST_NETWORK_GATEWAY eth2
+#echo "-- (Re) add default gw in eth2"
+#sudo route add default gw $PARENT_HOST_NETWORK_GATEWAY eth2
 
 # No more need to this
+#echo "-- (Re) del default gw in eth0"
 #sudo route del default eth0
 
 #echo "== Network configuration to the bridge customized !"
