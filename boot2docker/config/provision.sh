@@ -51,3 +51,13 @@ else
     echo -e '\nDOCKER_STORAGE=devicemapper\n' >> /var/lib/boot2docker/profile
     echo "== boot2docker/profile updated with devicemapper !"
 fi
+
+
+# -------------------------------------------------
+# Saves PARENT_HOST_NETWORK_GATEWAY in a file to
+# use it in custom-bootlocal.sh
+# -------------------------------------------------
+#echo "== Exporting PARENT_HOST_NETWORK_GATEWAY (value is $1) in /var/lib/boot2docker/PARENT_HOST_NETWORK_GATEWAY"
+#echo $1 > /var/lib/boot2docker/PARENT_HOST_NETWORK_GATEWAY
+#echo "== PARENT_HOST_NETWORK_GATEWAY exported !"
+

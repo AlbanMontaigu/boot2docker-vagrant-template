@@ -1,3 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+# ==========================================
+# Getting parent host gateway for network
+# config inside the box
+#
+# /!\ Be carefull works only on windows like 
+# this.
+# ==========================================
+#PARENT_HOST_NETWORK_GATEWAY = %x{ route print | findstr /r "0\.0\.0\.0  *0\.0\.0\.0" }[/0\.0\.0\.0 +0\.0\.0\.0 +([0-9.]+)/, 1]
+
 
 # ==========================================
 # Virtual host configuration
@@ -38,7 +51,9 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Customization of the OS
   # -----------------------------------
+  #config.vm.provision "shell", path: "boot2docker/config/provision.sh", args: PARENT_HOST_NETWORK_GATEWAY
   config.vm.provision "shell", path: "boot2docker/config/provision.sh"
+  
   
 end
 
