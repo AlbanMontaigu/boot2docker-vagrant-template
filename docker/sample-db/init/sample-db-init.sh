@@ -26,7 +26,7 @@ for i in `seq 1 10`; do
 done
 
 # The end maybe...
-if  [ $db_online != "OK" ]
+if  [ "$db_online" != "OK" ]
 then
     echo "== DB not found !"
     exit 1
