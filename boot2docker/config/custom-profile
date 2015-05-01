@@ -4,6 +4,9 @@
 # You can customize docker user profile here
 # =====================================================
 
+# Loads custom commands in user profile
+. /var/lib/boot2docker/custom-commands.sh
+
 #
 # Uncomment it to enable !
 # Warning, inception starts here : the docker devbox is started directly. 
