@@ -4,8 +4,11 @@
 # You can customize docker user profile here
 # =====================================================
 
+#
+# Uncoment it to enable
+# If you do not want to use profile.d (see custom-bootlocal)
 # Loads custom commands in user profile
-. /var/lib/boot2docker/custom-commands.sh
+#. /var/lib/boot2docker/custom-commands.sh
 
 #
 # Uncomment it to enable !

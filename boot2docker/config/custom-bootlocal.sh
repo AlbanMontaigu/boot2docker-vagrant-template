@@ -21,6 +21,15 @@ done
 
 
 # ----------------------------------------------------
+# ADD custom commands to the system
+# ----------------------------------------------------
+echo "== Adding custom-commands.sh to /etc/profile.d/ !"
+cp /var/lib/boot2docker/custom-commands.sh /etc/profile.d/custom-commands.sh
+chmod 777 /etc/profile.d/custom-commands.sh
+echo "== custom-commands.sh added !"
+
+
+# ----------------------------------------------------
 # ADD personal stuff to user's profile
 # ----------------------------------------------------
 echo "== Adding custom-profile to user ~/.ashrc !"
