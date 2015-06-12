@@ -90,7 +90,7 @@ echo "== custom-profile done !"
 
 # Ensure commands are available
 #echo "== Loading custom commands"
-#. ./etc/profile.d/custom-commands.sh
+#. /etc/profile.d/custom-commands.sh
 #echo "== Custom commands loaded !"
 
 # Starts redsocks
