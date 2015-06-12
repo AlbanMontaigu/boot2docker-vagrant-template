@@ -3,32 +3,15 @@
 # int dc alias.
 #
 
+
 # -----------------------------------------
 # Database sample
 # -----------------------------------------
 #sampleDb:
-#  image: "mysql:5.6"
+#  image: "amontaigu/mysql:5.6"
 #  ports:
 #    - "3306:3306"
 #  environment:
 #    MYSQL_ROOT_PASSWORD: pwd
-
-
-
-# -----------------------------------------
-# Loads database with correct data
-# -----------------------------------------
-#sampleDbInit:
-#  image: "mysql:5.6"
-#  ports:
-#    - "3006:3006"
-#  environment:
-#    MYSQL_ROOT_PASSWORD: pwd
-#    MYSQL_HOST: sampleDb
-#    MYSQL_PORT: 3306
-#  command:
-#    sh /tmp/sample-db/init/sample-db-init.sh
 #  volumes:
-#    - ./docker/sample-db/init:/tmp/sample-db/init
-#  links:
-#    - sampleDb
+#    - ./docker/sample-db/init:/entrypoint-initdb.d
