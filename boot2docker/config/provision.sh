@@ -32,7 +32,7 @@ fi
 
 
 # -------------------------------------------------
-# Solves insecure registry
+# Solves insecure registry (example)
 # -------------------------------------------------
 #if grep -q my.inscure.registry.url /var/lib/boot2docker/profile; then
 #    echo "== nothing todo in boot2docker/profile !"
@@ -43,14 +43,14 @@ fi
 
 
 # -------------------------------------------------
-# Solves AUFS layers limitation
+# Docker profile customization (example)
 # -------------------------------------------------
-if grep -q devicemapper /var/lib/boot2docker/profile; then
-    echo "== nothing todo in boot2docker/profile for devicemapper !"
-else
-    echo -e '\nDOCKER_STORAGE=devicemapper\n' >> /var/lib/boot2docker/profile
-    echo "== boot2docker/profile updated with devicemapper !"
-fi
+#if grep -q my_option /var/lib/boot2docker/profile; then
+#    echo "== nothing todo in boot2docker/profile for my_key_command !"
+#else
+#    echo -e '\nDOCKER_OPTS=my_option\n' >> /var/lib/boot2docker/profile
+#    echo "== boot2docker/profile updated with my_option !"
+#fi
 
 
 # -------------------------------------------------
