@@ -52,13 +52,3 @@ fi
 #    echo "== boot2docker/profile updated with my_option !"
 #fi
 
-
-# -------------------------------------------------
-# Saves PARENT_HOST_NETWORK_GATEWAY in a file to
-# use it in custom-bootlocal.sh
-# -------------------------------------------------
-#echo "== Exporting PARENT_HOST_NETWORK_GATEWAY (value is $1) in /var/lib/boot2docker/PARENT_HOST_NETWORK_GATEWAY"
-#PARENT_HOST_NETWORK_GATEWAY=$1
-#echo $PARENT_HOST_NETWORK_GATEWAY > /var/lib/boot2docker/PARENT_HOST_NETWORK_GATEWAY
-#echo "== PARENT_HOST_NETWORK_GATEWAY exported !"
-

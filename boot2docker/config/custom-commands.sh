@@ -11,6 +11,13 @@
 alias ls='ls --color=tty'
 alias ll='ls -al'
 
+# Enable to update box config live inside
+alias b2d-provision="sudo /vagrant/boot2docker/config/provision.sh"
+alias b2d-custom-bootlocal="sudo /vagrant/boot2docker/config/custom-bootlocal.sh"
+alias b2d-custom-commands="\. /vagrant/boot2docker/config/custom-commands.sh"
+alias b2d-custom-profile="\. /vagrant/boot2docker/config/custom-profile"
+alias b2d-update="b2d-provision && b2d-custom-bootlocal && b2d-custom-commands && b2d-custom-profile"
+
 
 # --------------------------------------
 # Docker compose aliases
