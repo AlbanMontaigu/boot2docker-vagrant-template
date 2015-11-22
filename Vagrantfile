@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Here a public box on the atlas cloud (support versioning)
   config.vm.box = "AlbanMontaigu/boot2docker"
-  config.vm.box_version = "1.9.0"
+  config.vm.box_version = "1.9.1"
 
 
   # -----------------------------------
