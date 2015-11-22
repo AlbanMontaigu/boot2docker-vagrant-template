@@ -17,15 +17,36 @@ alias b2d-custom-bootlocal="sudo /vagrant/boot2docker/config/custom-bootlocal.sh
 alias b2d-custom-commands="\. /vagrant/boot2docker/config/custom-commands.sh"
 alias b2d-custom-profile="\. /vagrant/boot2docker/config/custom-profile"
 alias b2d-update="b2d-provision && b2d-custom-bootlocal && b2d-custom-commands && b2d-custom-profile"
+# @see https://forums.virtualbox.org/viewtopic.php?f=3&t=33201
+# @see https://www.virtualbox.org/ticket/12597
+# @see https://www.virtualbox.org/ticket/9069
+alias b2d-sync='sudo -i sh -c "sync && echo 3 > /proc/sys/vm/drop_caches && exit"'
 
 
 # --------------------------------------
 # Docker compose aliases
 # --------------------------------------
-alias dc='docker run --rm -v $(pwd -P):/$(pwd -P) -v /var/run/docker.sock:/var/run/docker.sock -ti -w="$(pwd -P)" amontaigu/docker-compose'
-alias dc-pull='dc pull --allow-insecure-ssl'
-alias dc-up='dc up -d --allow-insecure-ssl'
-alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
+alias dc='docker run --rm -v $(pwd -P):/$(pwd -P) -v /var/run/docker.sock:/var/run/docker.sock -ti -w="$(pwd -P)" -e COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-app} amontaigu/docker-compose:1.5.1'
+alias dc-up='dc up -d'
+alias dc-init='dc stop ; dc rm -f ; dc pull ; dc-up'
+alias dc-reset='dc stop ; dc rm -f ; dc-up'
+
+# Compose with network feature enabled (need to be separated for backward compat)
+alias dcn="dc --x-networking"
+alias dcn-up='dcn up -d'
+alias dcn-init='dcn stop ; dcn rm -f ; dcn pull ; dcn-up'
+alias dcn-reset='dcn stop ; dcn rm -f ; dcn-up'
+
+# Change compose app prefix
+dc_prefix(){
+
+    if [ $# -eq 0 ]; then
+        echo $COMPOSE_PROJECT_NAME
+    else
+        export COMPOSE_PROJECT_NAME=$1
+    fi
+}
+alias dc-prefix="dc_prefix"
 
 
 # --------------------------------------
@@ -59,33 +80,60 @@ dk_proxy_env(){
     echo "${prx_env}"
 }
 
+# Get a ssh inside a container
+dk_sh() {
+    docker exec -ti $1 /bin/sh
+}
+alias dk-sh='dk_sh'
+
+# See files tree in a container
+dk_ls() {
+    docker exec -ti $1 /bin/ls -l $2
+}
+alias dk-ls='dk_ls'
+
+# See files content inside a container
+dk_cat() {
+    docker exec -ti $1 /bin/cat $2
+}
+alias dk-cat='dk_cat'
+
+# Edit files content inside a container
+dk_vi() {
+    docker exec -ti $1 /bin/vi $2
+}
+alias dk-vi='dk_vi'
+
+# Misc
+alias dk-flogs="docker logs -f $1"
+
 
 # --------------------------------------
 # Docker dk-devbox aliases and commands
 # --------------------------------------
-alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/boot2docker/docker/dk-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock --name="dk-devbox" amontaigu/docker-devbox'
+alias dk-devbox-run='docker run -it -v /vagrant:/vagrant -v /vagrant/boot2docker/docker/dk-devbox/.zshrc:/home/dev/.zshrc -v /var/run/docker.sock:/var/run/docker.sock -e COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-app} --name="dk-devbox" amontaigu/docker-devbox:1.9.0'
 alias dk-devbox-start='docker start -ia dk-devbox'
 alias dk-devbox-rm='docker rm dk-devbox'
 
 # All in one command to start the dk-devbox in all cases
 dk_devbox(){
 
-	# If redsocks is required (you have a proxy) ensure its started in custom-bootlocal
-	
+    # If redsocks is required (you have a proxy) ensure its started in custom-bootlocal
+    
     # Go to the devbox
     RUNNING=$(docker inspect --format="{{.State.Running}}" dk-devbox 2> /dev/null)
     if [[ "$RUNNING" == "false" ]]
     then
-	    echo "Starting dk-devbox docker container..."
+        echo "Starting dk-devbox docker container..."
         dk-devbox-start
     else
         if [[ "$RUNNING" != "true" ]]
         then
-		    echo "Running dk-devbox docker container..."
+            echo "Running dk-devbox docker container..."
             dk-devbox-run
         else
-		    echo "dk-devbox docker container is already started !"
-	    fi
+            echo "dk-devbox docker container is already started !"
+        fi
     fi
 }
 
@@ -109,15 +157,15 @@ dk_redsocks(){
     RUNNING=$(docker inspect --format="{{.State.Running}}" dk-redsocks 2> /dev/null)
     if [[ "$RUNNING" == "false" ]]
     then
-		echo "Starting dk-redsocks docker container..."
+        echo "Starting dk-redsocks docker container..."
         dk-redsocks-start
     else
         if [[ "$RUNNING" != "true" ]]
         then
-		    echo "Running dk-redsocks docker container..."
-	        dk-redsocks-run
+            echo "Running dk-redsocks docker container..."
+            dk-redsocks-run
         else
-		    echo "dk-redsocks docker container is already started !"
+            echo "dk-redsocks docker container is already started !"
         fi
     fi
 }

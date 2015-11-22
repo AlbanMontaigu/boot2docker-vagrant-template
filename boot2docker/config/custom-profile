@@ -17,3 +17,6 @@
 # directly
 #
 #dk_devbox
+
+# Custom env variables
+export COMPOSE_PROJECT_NAME="app"

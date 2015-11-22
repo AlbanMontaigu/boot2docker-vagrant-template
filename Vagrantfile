@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Here a public box on the atlas cloud (support versioning)
   config.vm.box = "AlbanMontaigu/boot2docker"
-  config.vm.box_version = "1.8.3"
+  config.vm.box_version = "1.9.0"
 
 
   # -----------------------------------
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   # Customization of the OS
   # -----------------------------------
   config.vm.provision "shell", path: "boot2docker/config/provision.sh"
-  
-  
+
+
 end
 

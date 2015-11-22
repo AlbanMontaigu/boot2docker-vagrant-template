@@ -51,9 +51,26 @@ alias ll='ls -al'
 # Docker compose aliases
 # ----------------------------------------
 alias dc='docker-compose'
-alias dc-pull='dc pull --allow-insecure-ssl'
-alias dc-up='dc up -d --allow-insecure-ssl'
-alias dc-init='dc stop ; dc rm ; dc-pull; dc-up'
+alias dc-up='dc up -d'
+alias dc-init='dc stop ; dc rm -f; dc pull ; dc-up'
+alias dc-reset='dc stop ; dc rm -f ; dc-up'
+
+# Compose with network feature enabled (need to be separated for backward compat)
+alias dcn="dc --x-networking"
+alias dcn-up='dcn up -d'
+alias dcn-init='dcn stop ; dcn rm -f; dcn pull ; dcn-up'
+alias dcn-reset='dcn stop ; dcn rm -f ; dcn-up'
+
+# Change compose app prefix
+dc_prefix(){
+
+    if [ $# -eq 0 ]; then
+        echo $COMPOSE_PROJECT_NAME
+    else
+        export COMPOSE_PROJECT_NAME=$1
+    fi
+}
+alias dc-prefix="dc_prefix"
 
 
 # ----------------------------------------
@@ -77,3 +94,30 @@ alias dk-cleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(doc
 
 # Delete all stopped containers and untagged images.
 alias dk-clean='dk-cleanc || true && dk-cleani'
+
+# Get a ssh inside a container
+dk_sh() {
+    docker exec -ti $1 /bin/sh
+}
+alias dk-sh='dk_sh'
+
+# See files tree in a container
+dk_ls() {
+    docker exec -ti $1 /bin/ls -l $2
+}
+alias dk-ls='dk_ls'
+
+# See files content inside a container
+dk_cat() {
+    docker exec -ti $1 /bin/cat $2
+}
+alias dk-cat='dk_cat'
+
+# Edit files content inside a container
+dk_vi() {
+    docker exec -ti $1 /bin/vi $2
+}
+alias dk-vi='dk_vi'
+
+# Misc
+alias dk-flogs="docker logs -f $1"
