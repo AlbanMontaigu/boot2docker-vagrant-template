@@ -10,10 +10,9 @@ BOOT2DOCKER_CONFIG_BOOTLOCAL="$BOOT2DOCKER_CONFIG_DIR/bootlocal.sh"
 # Execute bootlocal.sh if present to enable
 # live customization
 # -------------------------------------------------
-if [ -f BOOT2DOCKER_CONFIG_DIR ]; then
-   echo "== Executing $BOOT2DOCKER_CONFIG_BOOTLOCAL..."
-   $BOOT2DOCKER_CONFIG_BOOTLOCAL
-   echo "== $BOOT2DOCKER_CONFIG_BOOTLOCAL executed"
+if [ -f $BOOT2DOCKER_CONFIG_DIR ]; then
+   echo "== BOOTLOCAL execution..."
+   $BOOT2DOCKER_CONFIG_BOOTLOCAL > $BOOT2DOCKER_CONFIG_DIR/$0.log
 else
-   echo "== $BOOT2DOCKER_CONFIG_BOOTLOCAL not present execute a provision before !"
+   echo "== BOOTLOCAL not executed, try PROVISION before"
 fi
