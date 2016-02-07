@@ -5,7 +5,7 @@
 # -------------------------------------------------
 BOOT2DOCKER_CONFIG_DIR="/var/lib/boot2docker/config"
 BOOT2DOCKER_VAGRANT_CONFIG_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-config.git"
-LOGFILE="/var/log/vagrant-provision.log"
+LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 
 # -------------------------------------------------
 # Installing boo2docker configuration files

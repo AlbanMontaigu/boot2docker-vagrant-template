@@ -5,7 +5,7 @@
 # -------------------------------------------------
 BOOT2DOCKER_CONFIG_DIR="/var/lib/boot2docker/config"
 BOOT2DOCKER_CONFIG_BOOTLOCAL="$BOOT2DOCKER_CONFIG_DIR/bootlocal.sh"
-LOGFILE="/var/log/vagrant-bootlocal.log"
+LOGFILE="/var/lib/boot2docker/log/vagrant-bootlocal.log"
 
 # -------------------------------------------------
 # Execute bootlocal.sh if present to enable
