@@ -13,7 +13,7 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-bootlocal.log"
 # -------------------------------------------------
 if [ -f $BOOT2DOCKER_CONFIG_BOOTLOCAL ]; then
    echo "== BOOTLOCAL execution..."
-   $BOOT2DOCKER_CONFIG_BOOTLOCAL > $LOGFILE
+   $BOOT2DOCKER_CONFIG_BOOTLOCAL >> $LOGFILE 2>&1
 else
    echo "== BOOTLOCAL not found, try PROVISION before"
 fi
