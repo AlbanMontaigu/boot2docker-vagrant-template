@@ -11,7 +11,7 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 # -------------------------------------------------
 # Installing boo2docker configuration files
 # -------------------------------------------------
-echo "== PROVISIONING files..."
+echo "== PROVISIONING files... [$(date)]"
 sudo rm -rvf $BOOT2DOCKER_CONFIG_DIR >> $LOGFILE 2>&1
 sudo git clone $BOOT2DOCKER_VAGRANT_CONFIG_REPO $BOOT2DOCKER_CONFIG_DIR >> $LOGFILE 2>&1
 cd $BOOT2DOCKER_CONFIG_DIR
