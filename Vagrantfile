@@ -39,8 +39,8 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Customization of the OS
   # -----------------------------------
-  config.vm.provision "shell", path: "boot2docker/config/provision.sh"
-
+  config.vm.provision "shell", path: "boot2docker/provision.sh"
+  config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
 
 end
 
