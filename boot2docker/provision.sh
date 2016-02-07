@@ -21,5 +21,5 @@ sudo chmod -R 777 ${BOOT2DOCKER_CONFIG_DIR} >> $LOGFILE 2>&1
 # -------------------------------------------------
 # Running local provisionning file
 # -------------------------------------------------
-echo "== PROVISIONING executing local... [$(date)]"
+echo "== PROVISIONING running... [$(date)]"
 $BOOT2DOCKER_CONFIG_DIR/provision.sh >> $LOGFILE 2>&1
