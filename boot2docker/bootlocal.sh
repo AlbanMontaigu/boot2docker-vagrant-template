@@ -15,5 +15,5 @@ if [ -f $BOOT2DOCKER_CONFIG_BOOTLOCAL ]; then
    echo "== BOOTLOCAL execution..."
    $BOOT2DOCKER_CONFIG_BOOTLOCAL > $LOGFILE
 else
-   echo "== BOOTLOCAL not executed, try PROVISION before"
+   echo "== BOOTLOCAL not found, try PROVISION before"
 fi
