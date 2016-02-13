@@ -4,7 +4,7 @@ The files related to your boot2docker environment are here.
 
 ## provision.sh
 
-Run during a ```vagrant provision``` or the first ```vagrant up```.
+Run during a ```vagrant up --provision```, ```vagrant reload --provision``` or  the first ```vagrant up```.
 
 Basically, it prepares your boot2docker environment by adding files in ```/var/lib/boot2docker/config``` and then will run ```/var/lib/boot2docker/config/provision.sh```.
 
@@ -14,8 +14,8 @@ Depending your  ```Vagrantfile``` configuration.
 
 ## bootlocal.sh
 
-Run during each boot, mainly with ```vagrant up```, ```vagrant reload```.
+Run during each boot, mainly with ```vagrant up``` or ```vagrant reload``` for instance.
 
 Basically, it run commands found in ```/var/lib/boot2docker/config/bootlocal.sh```.
 
-For instance, it adds ```/home/docker/.alias```.
+For instance, it adds custom configuration to your environment.
