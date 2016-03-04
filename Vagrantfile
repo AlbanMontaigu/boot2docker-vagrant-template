@@ -8,7 +8,7 @@
 VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
 VAGRANT_B2D_VERSION="1.10.2"
 VAGRANT_B2D_CPU="2"
-VAGRANT_B2D_MEMORY="4096"
+VAGRANT_B2D_MEMORY="3072"
 VAGRANT_B2D_CONFIG_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-config.git"
 VAGRANT_B2D_CONFIG_VERSION="1.10.2"
 
