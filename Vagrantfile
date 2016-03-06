@@ -9,8 +9,8 @@ VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
 VAGRANT_B2D_VERSION="1.10.2"
 VAGRANT_B2D_CPU="2"
 VAGRANT_B2D_MEMORY="3072"
-VAGRANT_B2D_CONFIG_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-config.git"
-VAGRANT_B2D_CONFIG_VERSION="1.10.2"
+VAGRANT_B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
+VAGRANT_B2D_EXTENSION_VERSION="1.10.2"
 
 
 # ==========================================
@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Customization of the OS
   # -----------------------------------
-  config.vm.provision "shell", path: "boot2docker/provision.sh", :args => [ VAGRANT_B2D_CONFIG_REPO, VAGRANT_B2D_CONFIG_VERSION]
+  config.vm.provision "shell", path: "boot2docker/provision.sh", :args => [ VAGRANT_B2D_EXTENSION_REPO, VAGRANT_B2D_EXTENSION_VERSION]
   config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
 
 end
