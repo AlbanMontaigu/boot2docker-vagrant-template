@@ -8,4 +8,4 @@
 
 ## 1.10.0 (2016-02-07)
 - Update to boot2docker 1.10.0
-- Complete rework with a new configuration system ([boot2docker-vagrant-config](https://github.com/AlbanMontaigu/boot2docker-vagrant-config))
+- Complete rework with a new extension system ([boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension))
