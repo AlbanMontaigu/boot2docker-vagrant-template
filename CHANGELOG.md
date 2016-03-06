@@ -1,5 +1,5 @@
 
-## 1.10.2 (2016-03-04)
+## 1.10.2 (2016-03-06)
 - Update to boot2docker 1.10.2
 - Now default memory is 3072 Mo (4096 with too much big by default for small config)
 - Switching to new [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension) name
