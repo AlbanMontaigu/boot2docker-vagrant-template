@@ -1,4 +1,7 @@
 
+## 1.10.3 (2016-03-12)
+- Update to boot2docker 1.10.3
+
 ## 1.10.2 (2016-03-06)
 - Update to boot2docker 1.10.2
 - Now default memory is 3072 Mo (4096 with too much big by default for small config)
