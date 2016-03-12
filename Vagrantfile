@@ -6,11 +6,11 @@
 # General conf, change here
 # ==========================================
 VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
-VAGRANT_B2D_VERSION="1.10.2"
+VAGRANT_B2D_VERSION="1.10.3"
 VAGRANT_B2D_CPU="2"
 VAGRANT_B2D_MEMORY="3072"
 VAGRANT_B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
-VAGRANT_B2D_EXTENSION_VERSION="1.10.2"
+VAGRANT_B2D_EXTENSION_VERSION=VAGRANT_B2D_VERSION
 
 
 # ==========================================
