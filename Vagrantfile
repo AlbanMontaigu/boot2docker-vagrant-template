@@ -5,12 +5,20 @@
 # ==========================================
 # General conf, change here
 # ==========================================
+
+# Choose your box
 VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
+
+# Choose your box version, related to docker's version
 VAGRANT_B2D_VERSION="1.10.2"
+
+#  B2D VM customization
 VAGRANT_B2D_CPU="2"
 VAGRANT_B2D_MEMORY="3072"
+
+# B2D environment extension (version related to VAGRANT_B2D_VERSION by default)
 VAGRANT_B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
-VAGRANT_B2D_EXTENSION_VERSION="1.10.2"
+VAGRANT_B2D_EXTENSION_VERSION=VAGRANT_B2D_VERSION
 
 
 # ==========================================
@@ -22,7 +30,6 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # OS choosen on the machine
   # -----------------------------------
-  # Here a public box on the atlas cloud (support versioning)
   config.vm.box = VAGRANT_B2D_BOX
   config.vm.box_version = VAGRANT_B2D_VERSION
 
