@@ -20,6 +20,9 @@ VAGRANT_B2D_MEMORY="3072"
 VAGRANT_B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
 VAGRANT_B2D_EXTENSION_VERSION=VAGRANT_B2D_VERSION
 
+# Enable or not docker toolbox extension ON/OFF
+DTKB_EXTENSION_STATUS="ON"
+
 
 # ==========================================
 # Virtual host configuration
@@ -57,6 +60,7 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Customization of the OS
   # -----------------------------------
+  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DTKB_EXTENSION_STATUS', DTKB_EXTENSION_STATUS]
   config.vm.provision "shell", path: "boot2docker/provision.sh", :args => [ VAGRANT_B2D_EXTENSION_REPO, VAGRANT_B2D_EXTENSION_VERSION]
   config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
 

@@ -1,6 +1,7 @@
 
-## 1.10.3 (2016-03-12)
+## 1.10.3 (2016-03-13)
 - Update to boot2docker 1.10.3
+- Introducing persistent param change with ```Vagrantfile``` and ```param.sh```
 
 ## 1.10.2 (2016-03-06)
 - Update to boot2docker 1.10.2
