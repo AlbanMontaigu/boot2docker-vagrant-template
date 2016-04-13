@@ -1,4 +1,7 @@
 
+## beta (2016-04-13)
+- Workaround on provision.sh to clone repo with current user and not root (with sudo) to help managing proxy env var eventually not set for root user during provisioning
+
 ## 1.10.3 (2016-03-13)
 - Update to boot2docker 1.10.3
 - Introducing persistent param change with ```Vagrantfile``` and ```param.sh```
