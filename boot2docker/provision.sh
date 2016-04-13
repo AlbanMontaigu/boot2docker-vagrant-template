@@ -15,7 +15,10 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 # Be sure proxy is loaded if any
 # -------------------------------------------------
 if [ -f $BOOT2DOCKER_PROXY_SCRIPT ]; then
+    echo "== PROXY conf loading for next provisionning [$(date)]"
     source $BOOT2DOCKER_PROXY_SCRIPT
+else
+    echo "== NO PROXY conf found for next provisionning [$(date)]"
 fi
 
 
