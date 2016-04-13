@@ -14,7 +14,7 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 # -------------------------------------------------
 # Be sure proxy is loaded if any
 # -------------------------------------------------
-if [ -f $BOOT2DOCKER_PROXY_SCRIPT]; then
+if [ -f $BOOT2DOCKER_PROXY_SCRIPT ]; then
     source $BOOT2DOCKER_PROXY_SCRIPT
 fi
 
