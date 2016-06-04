@@ -1,4 +1,7 @@
 
+## 1.11.2 (2016-06-04)
+- Update to boot2docker 1.11.2
+
 ## 1.11.0 (2016-04-14)
 - Update to boot2docker 1.11.0
 - Workaround on provision.sh to clone repo with current user and not root (with sudo) to help managing proxy env var eventually not set for root user during provisioning
