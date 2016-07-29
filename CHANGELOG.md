@@ -1,4 +1,7 @@
 
+## 1.12.0 (2016-07-29)
+- Update to boot2docker 1.12.0
+
 ## 1.11.2 (2016-06-04)
 - Update to boot2docker 1.11.2
 
