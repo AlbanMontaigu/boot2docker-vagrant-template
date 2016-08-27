@@ -4,56 +4,95 @@
 
 A template proposal to integrate in your project and work with [vagrant-boot2docker-box](https://github.com/AlbanMontaigu/boot2docker-vagrant-box).
 
-The environment is extendend with [vagrant-boot2docker-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension).
+This template aims to contain minimal files and the remaining part is located in a git repo like [vagrant-boot2docker-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension).
 
-## Getting ready with docker on your laptop
+## Prerequisities
 
-- Get [vagrant](https://www.vagrantup.com/downloads.html) on your laptop
-- Get [virtualbox](https://www.virtualbox.org/wiki/Downloads) on your laptop
+### Software installation
 
-## Read the documentation :)
+The following software shall be installed on your computer:
+- [Vagrant](https://www.vagrantup.com/downloads.html)
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
-- [Vagrantfile official documentation](http://docs.vagrantup.com/v2/vagrantfile/)
-- For all vagrant commands please refer to the [official documentation](http://docs.vagrantup.com/v2/cli/)
+### Documentation knowledge
 
-## How to use this template
+The following documentation is not exhaustive be seems to represent the topics you should be aware of:
+- [Docker official documentation](https://docs.docker.com/)
+- [Vagrant official documentation](https://www.vagrantup.com/docs) and especially
+ - *[Vagrant client](https://www.vagrantup.com/docs/cli/)*
+ - *[Vagrantfile](https://www.vagrantup.com/docs/vagrantfile/)*
+- All integrated ```README.md``` in this project *(and related projects)* folders
 
-- Get the [last version](https://github.com/AlbanMontaigu/boot2docker-vagrant-template/releases) in your project or where your want *(clone directly or get the zip on github)*
+## Quick start
+
+- Get the **[last version](https://github.com/AlbanMontaigu/boot2docker-vagrant-template/releases)** in your project or where your want *(clone directly or get the zip on github)*
 - Go with a shell in your root directory and type ```vagrant up``` to start your boot2docker workspace
-- Go in your boot2docker workspace with ```vagrant ssh```
+- Go inside your boot2docker environment with ```vagrant ssh```
+- Run [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox) with ```dk tb```
+- With or without **docker-toolbox**, your files are located in ```/vagrant``` but ```dk tb``` bring you directly in this directory
 
-## Understand folders organization
+## Available commands
 
-```boot2docker``` contains your minimum boot2docker configuration files. You do not have to touch this until you want to add your own options.
-
-The major part of the customisation comes from a ```vagrant-boot2docker-extension``` git repo like [this one](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git).
-
-You can use your own, depeding the configuration done in your ```Vagrantfile```.
-
-## Working with boot2docker (on your computer)
-
-### Run your boot2docker
+### Outside the box
 
 - ```vagrant up``` to start your boot2docker VM *(the first time it will download automatically the VM file)*.
 - ```vagrant ssh``` to connect in your boot2docker
-- ```cd /vagrant``` to go in your project folder *(this folder is shared with your computer native operating system)*
 - ```exit``` in your boot2docker to get out of your environment
 - ```vagrant halt``` to stop your boot2docker *(but you can do this once a day or a week for example !)*
 - ```vagrant destroy --force``` to delete your boot2docker *(usefull if you want to redo all from scratch)*
 - ```vagrant destroy --force && vagrant box update``` to update your boot2docker *(for example to get the new version of docker !)*, **be carefull all your containers will be deleted**
 - ```vagrant reload``` restart your boot2docker VM
-- ```vagrant provision```, ```vagrant up --provision``` or ```vagrant reload --provision``` to redo a boot2docker VM customization
+- ```vagrant provision```, ```vagrant up --provision``` or ```vagrant reload --provision``` to redo a boot2docker VM customization *(called provisioning)*
 
-### Custom commands and more...
+### Inside the box
 
-Now, this project aims to be **minimal and not change a lot** to ease integration on the project *(no more complex file maintenance)*.
+Please check [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension) and its [README.md](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension/blob/latest/README.md).
 
-All the custom elements are located in the [vagrant-boot2docker-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension) project. It is integrated directly your boot2docker and you can do all the rested configuration un this place by forking the project for example and change the reference in the ```Vagrantfile``` configuration parameter.
+## Box configuration
 
-### Play with docker-toolbox !
+- ```VAGRANT_B2D_BOX``` name of the vagrant box on the vagrant cloud. Default is ```AlbanMontaigu/boot2docker``` for [vagrant-boot2docker-box](https://github.com/AlbanMontaigu/boot2docker-vagrant-box). Change it a your own risk.
+- ```VAGRANT_B2D_VERSION``` vagrant box version. With the default box, will stick to docker versions.
+- ```VAGRANT_B2D_CPU``` number of CPU for the VM.
+- ```VAGRANT_B2D_MEMORY``` memory of the VM.
+- ```VAGRANT_B2D_EXTENSION_REPO``` git URL repo for this box extension. Default is [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). Change it with your version if you want.
+- ```VAGRANT_B2D_EXTENSION_VERSION``` version of the extension, will sti to docker versions.
+- ```DKTB_EXTENSION_STATUS``` valued with ```ON``` or ```OFF``` to activate or not the [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension). This will add extended features to the [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox).
 
-Thanks to ```vagrant-boot2docker-extension```, now all custom commands to work with docker and docker-compose and more are in the [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox) project.
+## How to upgrade the box ?
 
-The goal of this is to keep very minimum files in your boot2docker and in your project. In addition, it shloud facilitate versions upgrades and different box management.
+In most cases, you dont need to change the templates files. However, read carefully ```README.md``` and ```CHANGELOG.md``` in the [boot2docker-vagrant-template](https://github.com/AlbanMontaigu/boot2docker-vagrant-template) project to know if it is requested.
 
-See ```vagrant-boot2docker-extension``` documentation to see how to use it !
+Then do the following:
+- Change ```VAGRANT_B2D_VERSION``` with the new one in your ```Vagrantfile```
+- Outside boot2docker and inside the your boot2docker project folder:
+ -  ```vagrant halt```
+ -  ```vagrant destroy --force```
+ -  ```vagrant up```
+
+For small updates without [vagrant-boot2docker-box](https://github.com/AlbanMontaigu/boot2docker-vagrant-box) update, with a running boot2docker and outside it just do a ```vagrant provision``` and then ```vagrant ssh``` to enjoy your environment.
+
+## How and where box features are managed ?
+
+### Box extension strategy
+
+Any modification provided by a new version or customization ++shall be located in extension system++ like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). It means that during boot, the extension git repo will be ++cloned++ from the extension URL.
+
+So you will need a working internet connection for that. This can be anoying but this is the price to pay to reduce impact on your project.
+
+You can provide your own custom extension like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). For instance fork it and change it as you want as long as you respect the proposed layout.
+
+Of course don't forget to change the extension git URL is set in the ```VAGRANT_B2D_EXTENSION_REPO``` parameter of the root ```Vagrantfile```.
+
+### Where are the box extension files ?
+
+Extension files are located ++in your boot2docker environement++, more precisely in the boot2docker system files and ++not in your project files++.
+
+There is a special directory where the extension is downloaded: ```BOOT2DOCKER_EXTENSION_DIR="/var/lib/boot2docker/extension"```
+
+### More extension with docker in [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox) container
+
+Features added in the current boot2docker template together with its extension aims to be minimal.
+
+Major part of the features are located in a [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox) docker image which is started as a container with a ```dk tb``` command inside your boot2docker environment *(after a ```vagrant ssh```)*.
+
+This way allow to have most of your features inside a container that you can run everywhere (and not especially in boot2docker) thanks to docker.
