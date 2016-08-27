@@ -1,21 +1,37 @@
 # Boot2docker files
 
-The files related to your boot2docker environment are here.
+## Introduction
 
-## provision.sh
+Main files related to your boot2docker environment are here.
 
-Run during a ```vagrant up --provision```, ```vagrant reload --provision``` or  the first ```vagrant up```.
+## Upgrade impact on these files
 
-Basically, it prepares your boot2docker environment by adding files in ```/var/lib/boot2docker/config``` and then will run ```/var/lib/boot2docker/config/provision.sh```.
+These files aims to be as stable and minimal as possible to avoid maintainance in your various projects. With other words, **any upgrade should avoid to modify these files**. See extension strategy to see how modifications are done.
 
-Files come from a ```vagrant-boot2docker-config``` git repo like [this one](https://github.com/AlbanMontaigu/boot2docker-vagrant-config.git).
+## Where these files are called ?
 
-Depending your  ```Vagrantfile``` configuration.
+These files are called inside the ```Vagrantfile``` provided at the root of this template in the section called *"Customization of the OS"*.
 
-## bootlocal.sh
+The call is done with the Vagrant ```config.vm.provision "shell", path:``` directive.
 
-Run during each boot, mainly with ```vagrant up``` or ```vagrant reload``` for instance.
+## Files description
 
-Basically, it run commands found in ```/var/lib/boot2docker/config/bootlocal.sh```.
+### bootlocal.sh
 
-For instance, it adds custom configuration to your environment.
+Run during each boot ++in third position++, with ```vagrant up``` or ```vagrant reload``` and during a provisioning with ```vagrant provision``` or equivalent with a ```--provision``` flag.
+
+Basically, it runs its twin extension script located in ```BOOT2DOCKER_EXTENSION_DIR``` inside boot2docker system files to start extension booting process.
+
+### param.sh
+
+Run during provisioning phase ++in second position++ with ```vagrant provision```, ```vagrant up --provision```, ```vagrant reload --provision``` or  the first ```vagrant up```.
+
+Basically, it runs its twin extension script located in ```BOOT2DOCKER_EXTENSION_DIR``` inside boot2docker system files to start extension parametrization process.
+
+### provision.sh
+
+Run during provisioning phase ++in first position++ with ```vagrant provision```, ```vagrant up --provision```, ```vagrant reload --provision``` or  the first ```vagrant up```.
+
+Basically, it clones a [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension) like extension and then it runs its twin extension script located in ```BOOT2DOCKER_EXTENSION_DIR``` inside boot2docker system files to start extension provisioning process.
+
+Extension git URL is set in the ```VAGRANT_B2D_EXTENSION_REPO``` parameter of the root ```Vagrantfile```.
