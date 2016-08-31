@@ -1,4 +1,7 @@
 
+## 1.12.1d (2016-08-31)
+- Update to extension 1.12.1d
+
 ## 1.12.1c (2016-08-30)
 - Update to extension 1.12.1c
 
