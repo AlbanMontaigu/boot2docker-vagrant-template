@@ -75,7 +75,7 @@ For small updates without [vagrant-boot2docker-box](https://github.com/AlbanMont
 
 ### Box extension strategy
 
-Any modification provided by a new version or customization ++shall be located in extension system++ like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). It means that during boot, the extension git repo will be ++cloned++ from the extension URL.
+Any modification provided by a new version or customization **shall be located in extension system** like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). It means that during boot, the extension git repo will be **cloned** from the extension URL.
 
 So you will need a working internet connection for that. This can be anoying but this is the price to pay to reduce impact on your project.
 
@@ -85,7 +85,7 @@ Of course don't forget to change the extension git URL is set in the ```VAGRANT_
 
 ### Where are the box extension files ?
 
-Extension files are located ++in your boot2docker environement++, more precisely in the boot2docker system files and ++not in your project files++.
+Extension files are located **in your boot2docker environement**, more precisely in the boot2docker system files and **not in your project files**.
 
 There is a special directory where the extension is downloaded: ```BOOT2DOCKER_EXTENSION_DIR="/var/lib/boot2docker/extension"```
 
