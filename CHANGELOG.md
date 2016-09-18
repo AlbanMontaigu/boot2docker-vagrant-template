@@ -1,6 +1,7 @@
 
-## 1.12.1f (2016-09-13)
+## 1.12.1f (2016-09-19)
 - Update to extension 1.12.1f
+- Update to boot2docker-vagrant-box 1.12.1f 
 
 ## 1.12.1e (2016-09-01)
 - Update to extension 1.12.1e
