@@ -57,6 +57,7 @@ Please check [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/bo
 - ```VAGRANT_B2D_EXTENSION_REPO``` git URL repo for this box extension. Default is [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). Change it with your version if you want.
 - ```VAGRANT_B2D_EXTENSION_VERSION``` version of the extension, will sti to docker versions.
 - ```DKTB_EXTENSION_STATUS``` valued with ```ON``` or ```OFF``` to activate or not the [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension). This will add extended features to the [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox).
+- ```DK_PROXYD_STATUS``` valued with ```ON``` or ```OFF``` to activate or not the [docker-transparent-proxy](https://github.com/AlbanMontaigu/docker-transparent-proxy). This will run a transparent proxy for your docker containers with dynamic proxy switch depending your urls / ip.
 
 ## How to upgrade the box ?
 
