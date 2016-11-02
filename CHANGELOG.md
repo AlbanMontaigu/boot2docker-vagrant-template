@@ -4,6 +4,7 @@
 - FEATURE: added ```DK_PROXYD_STATUS``` configuration for ```dk-proxyd``` daemon usage
 - FEATURE: now provisioning will display more detail during vagrant * operations
 - FEATURE: now param will display more detail during vagrant * operations
+- FEATURE: now bootlocal will display more detail during vagrant * operations
 
 ## 1.12.2 (2016-10-25)
 - Update to boot2docker-vagrant-box 1.12.2
