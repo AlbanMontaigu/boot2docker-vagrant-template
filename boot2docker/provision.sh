@@ -40,4 +40,4 @@ sudo chmod -R 777 $BOOT2DOCKER_EXTENSION_DIR >> $LOGFILE 2>&1
 # Running local provisionning file
 # -------------------------------------------------
 echo "== PROVISIONING running... [$(date)]"
-source $BOOT2DOCKER_EXTENSION_DIR/provision.sh >> $LOGFILE 2>&1
+source $BOOT2DOCKER_EXTENSION_DIR/provision.sh 2>&1 | tee $LOGFILE
