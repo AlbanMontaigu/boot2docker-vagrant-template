@@ -7,6 +7,7 @@ BOOT2DOCKER_EXTENSION_DIR="/var/lib/boot2docker/extension"
 BOOT2DOCKER_EXTENSION_PARAM="$BOOT2DOCKER_EXTENSION_DIR/param.sh"
 LOGFILE="/var/lib/boot2docker/log/vagrant-param.log"
 
+
 # -------------------------------------------------
 # Execute param.sh if present to enable
 # live customization

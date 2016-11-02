@@ -13,6 +13,7 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 # General information
 echo "==== [INFO][PROVISIONING][$(date)] Starting..." | tee -a $LOGFILE
 
+
 # -------------------------------------------------
 # Be sure proxy is loaded if any
 # -------------------------------------------------
