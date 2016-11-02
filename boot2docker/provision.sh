@@ -10,25 +10,28 @@ BOOT2DOCKER_EXTENSION_DIR="/var/lib/boot2docker/extension"
 BOOT2DOCKER_EXTENSION_DIR_TMP="/tmp/extension"
 LOGFILE="/var/lib/boot2docker/log/vagrant-provision.log"
 
+# General information
+echo "==== [INFO][PROVISIONING][$(date)] Starting..." | tee -a $LOGFILE
 
 # -------------------------------------------------
 # Be sure proxy is loaded if any
 # -------------------------------------------------
 if [ -f $BOOT2DOCKER_PROXY_SCRIPT ]; then
-    echo "== PROXY conf loading for next provisionning [$(date)]"
+    echo "[INFO][$(date +"%T")] PROXY conf loading for next operations" | tee -a $LOGFILE
     source $BOOT2DOCKER_PROXY_SCRIPT
 else
-    echo "== NO PROXY conf found for next provisionning [$(date)]"
+    echo "[INFO][$(date +"%T")] NO PROXY conf found for next operations" | tee -a $LOGFILE
 fi
 
 
 # -------------------------------------------------
 # Installing boo2docker configuration files
 # -------------------------------------------------
-echo "== PROVISIONING getting files... [$(date)]"
+echo "[INFO][$(date +"%T")] Cloning b2d extension files from repo ${VAGRANT_B2D_EXTENSION_REPO}" | tee -a $LOGFILE
 sudo rm -rvf $BOOT2DOCKER_EXTENSION_DIR >> $LOGFILE 2>&1
 sudo rm -rvf $BOOT2DOCKER_EXTENSION_DIR_TMP >> $LOGFILE 2>&1
 git clone $VAGRANT_B2D_EXTENSION_REPO $BOOT2DOCKER_EXTENSION_DIR_TMP >> $LOGFILE 2>&1
+echo "[INFO][$(date +"%T")] Clone result is <$?> for b2d extension files" | tee -a $LOGFILE
 cd $BOOT2DOCKER_EXTENSION_DIR_TMP
 git checkout $VAGRANT_B2D_EXTENSION_VERSION >> $LOGFILE 2>&1
 cd ..
@@ -37,7 +40,7 @@ sudo chmod -R 777 $BOOT2DOCKER_EXTENSION_DIR >> $LOGFILE 2>&1
 
 
 # -------------------------------------------------
-# Running local provisionning file
+# Running local provisioning file
 # -------------------------------------------------
-echo "== PROVISIONING running... [$(date)]"
+echo "==== [INFO][PROVISIONING][$(date)] Now starting sub scripts..." | tee -a $LOGFILE
 source $BOOT2DOCKER_EXTENSION_DIR/provision.sh 2>&1 | tee -a $LOGFILE

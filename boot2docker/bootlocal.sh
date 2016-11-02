@@ -12,8 +12,8 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-bootlocal.log"
 # live customization
 # -------------------------------------------------
 if [ -f $BOOT2DOCKER_EXTENSION_BOOTLOCAL ]; then
-   echo "== BOOTLOCAL execution... [$(date)] "
+   echo "==== [INFO][BOOTLOCAL][$(date)] Starting..."  | tee -a $LOGFILE
    $BOOT2DOCKER_EXTENSION_BOOTLOCAL 2>&1 | tee -a $LOGFILE
 else
-   echo "== BOOTLOCAL not found, try PROVISION before [$(date)] "
+   echo "[WARN][$(date +"%T")] Bootlocal not found, try PROVISION before"  | tee -a $LOGFILE
 fi
