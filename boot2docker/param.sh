@@ -13,8 +13,9 @@ LOGFILE="/var/lib/boot2docker/log/vagrant-param.log"
 # live customization
 # -------------------------------------------------
 if [ -f $BOOT2DOCKER_EXTENSION_PARAM ]; then
-   echo "==== [INFO][PARAM][$(date)] Starting..." | tee -a $LOGFILE
+   echo "[INFO][PARAM] Starting... ($(date))" | tee -a $LOGFILE
    $BOOT2DOCKER_EXTENSION_PARAM "$1" "$2" 2>&1 | tee -a $LOGFILE
+   echo "[INFO][PARAM] Ended ! ($(date))" | tee -a $LOGFILE
 else
-   echo "[WARN][$(date +"%T")] Param not found, try PROVISION before !" | tee -a $LOGFILE
+   echo "[WARN][PARAM] Param not found, try PROVISION before !" | tee -a $LOGFILE
 fi
