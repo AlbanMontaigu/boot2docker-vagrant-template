@@ -28,7 +28,7 @@ DK_PROXYD_STATUS="OFF"
 
 # Enable or not regular docker images pull
 CRON_DK_IPULL_STATUS="OFF"
-CRON_DK_IPULL_TIME="30 13 * * *"
+CRON_DK_IPULL_TIME="15 13 * * *"
 
 # Enable or not regular docker images backup
 CRON_DK_IBACKUP_STATUS="OFF"
