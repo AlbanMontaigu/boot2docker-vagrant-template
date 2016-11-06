@@ -30,6 +30,10 @@ DK_PROXYD_STATUS="OFF"
 CRON_DK_IPULL_STATUS="OFF"
 CRON_DK_IPULL_TIME="30 13 * * *"
 
+# Enable or not regular docker images backup
+CRON_DK_IBACKUP_STATUS="OFF"
+CRON_DK_IBACKUP_TIME="30 13 * * *"
+
 
 # ==========================================
 # Virtual host configuration
@@ -72,6 +76,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DK_PROXYD_STATUS', DK_PROXYD_STATUS]
   config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_STATUS', CRON_DK_IPULL_STATUS]
   config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_TIME', CRON_DK_IPULL_TIME]
+  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IBACKUP_STATUS', CRON_DK_IBACKUP_STATUS]
+  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IBACKUP_TIME', CRON_DK_IBACKUP_TIME]
   config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
 
 end

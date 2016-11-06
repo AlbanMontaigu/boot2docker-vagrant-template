@@ -7,6 +7,7 @@
 - FEATURE: now param will display more detail during vagrant * operations
 - FEATURE: now bootlocal will display more detail during vagrant * operations
 - FEATURE: auto and regular docker pull available
+- FEATURE: auto and regular images backup available
 
 ## 1.12.2 (2016-10-25)
 - Update to boot2docker-vagrant-box 1.12.2
