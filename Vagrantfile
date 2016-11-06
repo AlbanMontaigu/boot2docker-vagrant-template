@@ -26,6 +26,10 @@ DKTB_EXTENSION_STATUS="OFF"
 # Enable or not docker transparent proxy daemon
 DK_PROXYD_STATUS="OFF"
 
+# Enable or not regular docker images pull
+CRON_DK_IPULL_STATUS="OFF"
+CRON_DK_IPULL_TIME="30 13 * * *"
+
 
 # ==========================================
 # Virtual host configuration
@@ -66,6 +70,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "boot2docker/provision.sh", :args => [ VAGRANT_B2D_EXTENSION_REPO, VAGRANT_B2D_EXTENSION_VERSION]
   config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DKTB_EXTENSION_STATUS', DKTB_EXTENSION_STATUS]
   config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DK_PROXYD_STATUS', DK_PROXYD_STATUS]
+  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_STATUS', CRON_DK_IPULL_STATUS]
+  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_TIME', CRON_DK_IPULL_TIME]
   config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
 
 end

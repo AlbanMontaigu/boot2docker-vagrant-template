@@ -1,11 +1,12 @@
 
-## 1.12.3 (2016-11-02)
+## 1.12.3 (2016-11-06)
 - UPDATE: bump to boot2docker-vagrant-box 1.12.3
 - UPDATE: better log information in file and console
 - FEATURE: added ```DK_PROXYD_STATUS``` configuration for ```dk_proxyd``` daemon usage
 - FEATURE: now provisioning will display more detail during vagrant * operations
 - FEATURE: now param will display more detail during vagrant * operations
 - FEATURE: now bootlocal will display more detail during vagrant * operations
+- FEATURE: auto and regular docker pull available
 
 ## 1.12.2 (2016-10-25)
 - Update to boot2docker-vagrant-box 1.12.2
