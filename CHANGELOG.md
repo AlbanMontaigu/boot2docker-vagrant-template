@@ -2,7 +2,6 @@
 ## 1.12.5 (2016-12-26)
 - UPDATE: update to boot2docker-vagrant-box 1.12.5
 
-
 ## 1.12.3 (2016-11-06)
 - UPDATE: bump to boot2docker-vagrant-box 1.12.3
 - UPDATE: better log information in file and console
