@@ -1,4 +1,7 @@
 
+## 1.13.0 (2017-01-29)
+- UPDATE: update to boot2docker-vagrant-box 1.13.0
+
 ## 1.12.5 (2016-12-26)
 - UPDATE: update to boot2docker-vagrant-box 1.12.5
 
