@@ -1,4 +1,7 @@
 
+## 17.03.0-ce (2017-04-07)
+- UPDATE: update to boot2docker-vagrant-box 17.03.1ce
+
 ## 17.03.0-ce (2017-03-13)
 - UPDATE: update to boot2docker-vagrant-box 17.03.0ce (ce instead of -ce to avoid box version naming issue)
 
