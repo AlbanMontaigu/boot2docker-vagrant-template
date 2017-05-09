@@ -1,4 +1,7 @@
 
+## 17.05.0-ce (2017-05-09)
+- UPDATE: update to boot2docker-vagrant-box 17.05.0-ce
+
 ## 17.04.0-ce (2017-04-10)
 - UPDATE: update to boot2docker-vagrant-box 17.04.0-ce
 - UPDATE: try to go back to docker standard version name
