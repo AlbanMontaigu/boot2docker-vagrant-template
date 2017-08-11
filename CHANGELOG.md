@@ -1,7 +1,6 @@
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to boot2docker-vagrant-box 17.06.0-ce
-- BUGFIX: now use the right image for transparent proxy
 
 ## 17.05.0-ce (2017-05-09)
 - UPDATE: update to boot2docker-vagrant-box 17.05.0-ce
