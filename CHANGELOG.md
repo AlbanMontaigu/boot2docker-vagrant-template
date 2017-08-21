@@ -1,5 +1,5 @@
 
-## 17.XX.XX-ce (2017-08-11)
+## 17.06.1-ce (2017-08-21)
 - FEATURE: ```boot2docker/dk_images_backup.txt``` file added to allow docker images backup definition
 
 ## 17.06.0-ce (2017-07-05)
