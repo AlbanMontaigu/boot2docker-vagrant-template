@@ -35,3 +35,21 @@ Run during provisioning phase **in first position** with ```vagrant provision```
 Basically, it clones a [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension) like extension and then it runs its twin extension script located in ```BOOT2DOCKER_EXTENSION_DIR``` inside boot2docker system files to start extension provisioning process.
 
 Extension git URL is set in the ```VAGRANT_B2D_EXTENSION_REPO``` parameter of the root ```Vagrantfile```.
+
+### dk_images_backup.txt
+
+This file allows you to specify a list of docker images to be backuped / restored automatically.
+
+Please note that this feature will store locally on your host computer all your images in a common directory for all your boot2docker VM.
+
+So it allows to have a more efficient image / backup process but with the counterpart to specify the images you want (to avoid backup / restore for a very long list of docker images).
+
+*Example of image specification based on regex:*
+
+```bash
+.*docker-toolbox_17.06.0-ce.*
+.*docker-toolbox_17.06.1-ce.*
+.*centos.*
+```
+
+As you may see you may specify image version separated with ```_``` char.
