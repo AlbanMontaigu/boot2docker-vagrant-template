@@ -1,6 +1,7 @@
 
 ## 17.06.1-ce (2017-08-21)
 - FEATURE: ```boot2docker/dk_images_backup.txt``` file added to allow docker images backup definition
+- UPDATE: update to boot2docker-vagrant-box 17.06.1-ce
 
 ## 17.06.0-ce (2017-07-05)
 - UPDATE: update to boot2docker-vagrant-box 17.06.0-ce
