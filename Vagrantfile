@@ -10,7 +10,7 @@
 VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
 
 # Choose your box version, related to docker's version
-VAGRANT_B2D_VERSION="17.06.1-ce"
+VAGRANT_B2D_VERSION="17.07.0-ce"
 
 #  B2D VM customization
 VAGRANT_B2D_CPU="2"
