@@ -6,7 +6,7 @@ A template proposal to integrate in your project and work with [vagrant-boot2doc
 
 This template aims to contain minimal files and the remaining part is located in a git repo like [vagrant-boot2docker-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension).
 
-## Prerequisities
+## Prerequisites
 
 ### Software installation
 
@@ -22,6 +22,12 @@ The following documentation is not exhaustive be seems to represent the topics y
  - *[Vagrant client](https://www.vagrantup.com/docs/cli/)*
  - *[Vagrantfile](https://www.vagrantup.com/docs/vagrantfile/)*
 - All integrated ```README.md``` in this project *(and related projects)* folders
+
+## Following docker stable versions
+
+This project aims to follow mainly docker stable releases. Meaning that each docker release, especially test ones may not be published here.
+
+For more information please check [docker stable releases](https://download.docker.com/linux/static/stable/x86_64/) and [time based release schedule](https://docs.docker.com/engine/installation/#time-based-release-schedule).
 
 ## Quick start
 
