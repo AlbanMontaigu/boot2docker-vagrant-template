@@ -1,4 +1,7 @@
 
+## 17.09.0-ce (2017-10-06)
+- UPDATE: update to boot2docker-vagrant-box 17.09.0-ce
+
 ## 17.06.2-ce (2017-09-06)
 - UPDATE: update to boot2docker-vagrant-box 17.06.2-ce
 
