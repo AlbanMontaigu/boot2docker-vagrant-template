@@ -56,12 +56,12 @@ Please check [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/bo
 
 ## Box configuration
 
-- ```VAGRANT_B2D_BOX``` name of the vagrant box on the vagrant cloud. Default is ```AlbanMontaigu/boot2docker``` for [vagrant-boot2docker-box](https://github.com/AlbanMontaigu/boot2docker-vagrant-box). Change it a your own risk.
-- ```VAGRANT_B2D_VERSION``` vagrant box version. With the default box, will stick to docker versions.
-- ```VAGRANT_B2D_CPU``` number of CPU for the VM.
-- ```VAGRANT_B2D_MEMORY``` memory of the VM.
-- ```VAGRANT_B2D_EXTENSION_REPO``` git URL repo for this box extension. Default is [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). Change it with your version if you want.
-- ```VAGRANT_B2D_EXTENSION_VERSION``` version of the extension, will sti to docker versions.
+- ```B2D_BOX``` name of the vagrant box on the vagrant cloud. Default is ```AlbanMontaigu/boot2docker``` for [vagrant-boot2docker-box](https://github.com/AlbanMontaigu/boot2docker-vagrant-box). Change it a your own risk.
+- ```B2D_VERSION``` vagrant box version. With the default box, will stick to docker versions.
+- ```B2D_CPU``` number of CPU for the VM.
+- ```B2D_MEMORY``` memory of the VM.
+- ```B2D_EXTENSION_REPO``` git URL repo for this box extension. Default is [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). Change it with your version if you want.
+- ```B2D_EXTENSION_VERSION``` version of the extension, will sti to docker versions.
 - ```DKTB_EXTENSION_STATUS``` valued with ```ON``` or ```OFF``` to activate or not the [docker-toolbox-extension](https://github.com/AlbanMontaigu/docker-toolbox-extension). This will add extended features to the [docker-toolbox](https://github.com/AlbanMontaigu/docker-toolbox).
 - ```DK_PROXYD_STATUS``` valued with ```ON``` or ```OFF``` to activate or not the [docker-transparent-proxy](https://github.com/AlbanMontaigu/docker-transparent-proxy). This will run a transparent proxy for your docker containers with dynamic proxy switch depending your urls / ip.
 
@@ -70,7 +70,7 @@ Please check [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/bo
 In most cases, you dont need to change the templates files. However, read carefully ```README.md``` and ```CHANGELOG.md``` in the [boot2docker-vagrant-template](https://github.com/AlbanMontaigu/boot2docker-vagrant-template) project to know if it is requested.
 
 Then do the following:
-- Change ```VAGRANT_B2D_VERSION``` with the new one in your ```Vagrantfile```
+- Change ```B2D_VERSION``` with the new one in your ```Vagrantfile```
 - Outside boot2docker and inside the your boot2docker project folder:
  -  ```vagrant halt```
  -  ```vagrant destroy --force```
@@ -84,15 +84,15 @@ For small updates without [vagrant-boot2docker-box](https://github.com/AlbanMont
 
 Any modification provided by a new version or customization **shall be located in extension system** like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). It means that during boot, the extension git repo will be **cloned** from the extension URL.
 
-So you will need a working internet connection for that. This can be anoying but this is the price to pay to reduce impact on your project.
+So you will need a working internet connection for that. This can be annoying but this is the price to pay to reduce impact on your project.
 
 You can provide your own custom extension like [boot2docker-vagrant-extension](https://github.com/AlbanMontaigu/boot2docker-vagrant-extension). For instance fork it and change it as you want as long as you respect the proposed layout.
 
-Of course don't forget to change the extension git URL is set in the ```VAGRANT_B2D_EXTENSION_REPO``` parameter of the root ```Vagrantfile```.
+Of course don't forget to change the extension git URL is set in the ```B2D_EXTENSION_REPO``` parameter of the root ```Vagrantfile```.
 
 ### Where are the box extension files ?
 
-Extension files are located **in your boot2docker environement**, more precisely in the boot2docker system files and **not in your project files**.
+Extension files are located **in your boot2docker environment**, more precisely in the boot2docker system files and **not in your project files**.
 
 There is a special directory where the extension is downloaded: ```BOOT2DOCKER_EXTENSION_DIR="/var/lib/boot2docker/extension"```
 

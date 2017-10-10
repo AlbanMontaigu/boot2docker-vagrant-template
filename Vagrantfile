@@ -3,22 +3,23 @@
 
 
 # ==========================================
-# General conf, change here
+# General configuration
 # ==========================================
 
 # Choose your box
-VAGRANT_B2D_BOX="AlbanMontaigu/boot2docker"
+B2D_BOX="AlbanMontaigu/boot2docker"
 
 # Choose your box version, related to docker's version
-VAGRANT_B2D_VERSION="17.09.0-ce"
+B2D_VERSION="17.09.0-ce"
 
 #  B2D VM customization
-VAGRANT_B2D_CPU="2"
-VAGRANT_B2D_MEMORY="3072"
+B2D_CPU="2"
+B2D_MEMORY="3072"
 
-# B2D environment extension (version related to VAGRANT_B2D_VERSION by default)
-VAGRANT_B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
-VAGRANT_B2D_EXTENSION_VERSION=VAGRANT_B2D_VERSION
+# B2D environment extension (version related to B2D_VERSION by default)
+B2D_EXTENSION_VERSION=B2D_VERSION
+B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
+B2D_EXTENSION_REPO_RAWV="https://raw.githubusercontent.com/AlbanMontaigu/boot2docker-vagrant-extension/master/vagrant"
 
 # Enable or not docker toolbox extension ON/OFF
 DKTB_EXTENSION_STATUS="OFF"
@@ -42,10 +43,10 @@ Vagrant.configure("2") do |config|
 
 
   # -----------------------------------
-  # OS choosen on the machine
+  # OS chosen on the machine
   # -----------------------------------
-  config.vm.box = VAGRANT_B2D_BOX
-  config.vm.box_version = VAGRANT_B2D_VERSION
+  config.vm.box = B2D_BOX
+  config.vm.box_version = B2D_VERSION
 
 
   # -----------------------------------
@@ -54,10 +55,10 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
 
     # Customize hier the memory available for your boot2docker
-    vb.customize ["modifyvm", :id, "--memory", VAGRANT_B2D_MEMORY]
+    vb.customize ["modifyvm", :id, "--memory", B2D_MEMORY]
   
     # Customize here the number of cpu you want to give to your boot2docker
-    vb.customize ["modifyvm", :id, "--cpus", VAGRANT_B2D_CPU]
+    vb.customize ["modifyvm", :id, "--cpus", B2D_CPU]
   end
 
 
@@ -71,13 +72,13 @@ Vagrant.configure("2") do |config|
   # -----------------------------------
   # Customization of the OS
   # -----------------------------------
-  config.vm.provision "shell", path: "boot2docker/provision.sh", :args => [ VAGRANT_B2D_EXTENSION_REPO, VAGRANT_B2D_EXTENSION_VERSION]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DKTB_EXTENSION_STATUS', DKTB_EXTENSION_STATUS]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'DK_PROXYD_STATUS', DK_PROXYD_STATUS]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_STATUS', CRON_DK_IPULL_STATUS]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IPULL_TIME', CRON_DK_IPULL_TIME]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IBACKUP_STATUS', CRON_DK_IBACKUP_STATUS]
-  config.vm.provision "shell", path: "boot2docker/param.sh", :args => [ 'CRON_DK_IBACKUP_TIME', CRON_DK_IBACKUP_TIME]
-  config.vm.provision "shell", path: "boot2docker/bootlocal.sh", run: "always"
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/provision.sh", :args => [ B2D_EXTENSION_REPO, B2D_EXTENSION_VERSION ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'DKTB_EXTENSION_STATUS', DKTB_EXTENSION_STATUS ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'DK_PROXYD_STATUS', DK_PROXYD_STATUS ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IPULL_STATUS', CRON_DK_IPULL_STATUS ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IPULL_TIME', CRON_DK_IPULL_TIME ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_STATUS', CRON_DK_IBACKUP_STATUS ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_TIME', CRON_DK_IBACKUP_TIME ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/bootlocal.sh", run: "always"
 
 end

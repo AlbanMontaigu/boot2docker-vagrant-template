@@ -1,4 +1,7 @@
 
+## 17.09.0-ce (2017-10-10)
+- FEATURE: remove of `boot2docker` folder, all is called remotely now in b2d extension
+
 ## 17.09.0-ce (2017-10-06)
 - UPDATE: update to boot2docker-vagrant-box 17.09.0-ce
 
