@@ -19,7 +19,7 @@ B2D_MEMORY="3072"
 # B2D environment extension (version related to B2D_VERSION by default)
 B2D_EXTENSION_VERSION=B2D_VERSION
 B2D_EXTENSION_REPO="https://github.com/AlbanMontaigu/boot2docker-vagrant-extension.git"
-B2D_EXTENSION_REPO_RAWV="https://raw.githubusercontent.com/AlbanMontaigu/boot2docker-vagrant-extension/master/vagrant"
+B2D_EXTENSION_REPO_RAWV="https://raw.githubusercontent.com/AlbanMontaigu/boot2docker-vagrant-extension/#{B2D_EXTENSION_VERSION}/vagrant"
 
 # Enable or not docker toolbox extension ON/OFF
 DKTB_EXTENSION_STATUS="OFF"
