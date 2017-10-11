@@ -69,22 +69,25 @@ Vagrant.configure("2") do |config|
   # Put here all the port mapping you want to do between your computer and your boot2docker
 
 
-  # -----------------------------------
+  # -------------------------------------------
   # Customization of the OS
-  # -----------------------------------
-  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/provision.sh", :args => [ B2D_EXTENSION_REPO, B2D_EXTENSION_VERSION ]
+  # -------------------------------------------
+  
+  # 1st part: provision start and initial param
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/provision-start.sh", :args => [ B2D_EXTENSION_REPO, B2D_EXTENSION_VERSION ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'DKTB_EXTENSION_STATUS', DKTB_EXTENSION_STATUS ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'DK_PROXYD_STATUS', DK_PROXYD_STATUS ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IPULL_STATUS', CRON_DK_IPULL_STATUS ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IPULL_TIME', CRON_DK_IPULL_TIME ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_STATUS', CRON_DK_IBACKUP_STATUS ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_TIME', CRON_DK_IBACKUP_TIME ]
-  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/bootlocal.sh", run: "always"
-  
-  # -----------------------------------
-  # Additional docker images backup
-  # -----------------------------------
-  # Put here 1 line by image you want to add like the sample below (docker-toolbox is already included)
+
+  # 2nd part: additional docker images backup
+  #           Put here 1 line by image you want to add like the sample below (docker-toolbox is already included)
   #config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param-ibackup.sh", :args => [ '.*alpine_3.6.*' ]
+  
+  # last part: finish provisioning and run bootlocal
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/provision-end.sh", :args => [ B2D_EXTENSION_REPO, B2D_EXTENSION_VERSION ]
+  config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/bootlocal.sh", run: "always"
 
 end
