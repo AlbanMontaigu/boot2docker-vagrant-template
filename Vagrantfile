@@ -80,5 +80,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_STATUS', CRON_DK_IBACKUP_STATUS ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param.sh", :args => [ 'CRON_DK_IBACKUP_TIME', CRON_DK_IBACKUP_TIME ]
   config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/bootlocal.sh", run: "always"
+  
+  # -----------------------------------
+  # Additional docker images backup
+  # -----------------------------------
+  # Put here 1 line by image you want to add like the sample below (docker-toolbox is already included)
+  #config.vm.provision "shell", path: "#{B2D_EXTENSION_REPO_RAWV}/param-ibackup.sh", :args => [ '.*alpine_3.6.*' ]
 
 end
