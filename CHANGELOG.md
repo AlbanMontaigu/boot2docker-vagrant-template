@@ -3,6 +3,7 @@
 - FEATURE: remove of `boot2docker` folder, all is called remotely now in b2d extension
 - FEATURE: now auto backup is configured in `Vagrantfile` instead of `dk_images_backup.txt`
 - FEATURE: cut provisioning in 2 steps to allow custom param to be taken in account in provisioning-end run at last
+- UPDATE: `CRON_DK_IPULL_STATUS` and `CRON_DK_IBACKUP_STATUS` set to `ON` by default
 
 ## 17.09.0-ce (2017-10-06)
 - UPDATE: update to boot2docker-vagrant-box 17.09.0-ce
