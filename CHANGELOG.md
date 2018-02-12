@@ -1,4 +1,7 @@
 
+## 17.12.0-ce (2018-02-12)
+- UPDATE: update to boot2docker-vagrant-box 17.12.0-ce
+
 ## 17.09.0-ce (2017-10-11)
 - FEATURE: remove of `boot2docker` folder, all is called remotely now in b2d extension
 - FEATURE: now auto backup is configured in `Vagrantfile` instead of `dk_images_backup.txt`
