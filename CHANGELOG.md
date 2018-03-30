@@ -1,6 +1,7 @@
 
 ## 18.03.0-ce (2018-03-30)
 - UPDATE: update to boot2docker-vagrant-box 18.03.0-ce
+- INFO: update ```README.md``` to explain ```proxyd``` behaviour and new features (related to boot2docker-vagrant-extension project) 
 
 ## 17.12.0-ce (2018-02-12)
 - UPDATE: update to boot2docker-vagrant-box 17.12.0-ce
