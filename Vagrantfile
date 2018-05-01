@@ -10,7 +10,7 @@
 B2D_BOX="AlbanMontaigu/boot2docker"
 
 # Choose your box version, related to docker's version
-B2D_VERSION="18.03.0-ce"
+B2D_VERSION="18.03.1-ce"
 
 #  B2D VM customization
 B2D_CPU="2"
