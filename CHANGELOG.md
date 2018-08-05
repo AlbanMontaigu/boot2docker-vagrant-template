@@ -1,4 +1,7 @@
 
+## 18.06.0-ce (2018-08-05)
+- UPDATE: update to boot2docker-vagrant-box 18.06.0-ce
+
 ## 18.03.1-ce (2018-05-01)
 - UPDATE: update to boot2docker-vagrant-box 18.03.1-ce
 
